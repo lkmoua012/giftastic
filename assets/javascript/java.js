@@ -90,11 +90,12 @@ $(function() {
 
     function addActor(){
 
-        var newActor = $("#actor-input").val().trim();
-        var newActor2 = newActor.toLowerCase();
+        var newActor = $("#actor-input").val().toLowerCase().trim();
 
-        if (topics.indexOf(newActor2) > -1){
-            alert("You've already inputted this actor.")
+        console.log(newActor);
+
+        if (topics.indexOf(newActor) > -1){
+            alert("This entry is already listed.")
 
             $(this).closest("form").find("input[type=text], textarea").val("");
 
@@ -102,7 +103,7 @@ $(function() {
 
         } else {
 
-            if (newActor2 === "") {
+            if (newActor === "") {
 
                 alert("Please input a valid entry.");
     
@@ -110,7 +111,7 @@ $(function() {
     
             };
 
-            topics.push(newActor2);
+            topics.push(newActor);
         
             buttonGifs();
 
